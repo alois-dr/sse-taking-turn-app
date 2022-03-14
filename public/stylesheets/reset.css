@@ -1,0 +1,12 @@
+ul{
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+input[type="checkbox"]{
+  margin: 0;
+  padding: 0;
+}

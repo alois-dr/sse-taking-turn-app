@@ -1,0 +1,20 @@
+module.exports = [
+  "lapinou",
+  "lapin",
+  "chimpanzé",
+  "tigrounet",
+  "tigre",
+  "renard",
+  "cerf",
+  "rat des champs",
+  "rat des villes",
+  "belette",
+  "blaireau",
+  "cocotte",
+  "poulet",
+  "lièvre",
+  "tortue",
+  "tortue ninja",
+  "chien",
+  "chat"
+]

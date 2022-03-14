@@ -1,0 +1,40 @@
+body {
+  /*background: linear-gradient(0deg, var(--primary-color), var(--primary-color) 55%, var(--third-color));*/
+  background-color: var(--primary-color);
+}
+section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+h1{
+  margin: 1.5rem auto;
+  color: var(--secondary-font-color);
+}
+label{
+  font-size: 1.5rem;
+  color: var(--primary-font-color);
+}
+form{
+}
+input {
+  box-shadow: none;
+  max-width: 20rem;
+  width: 80%;
+  height: 2rem;
+  border-radius: 8px;
+  border: var(--third-color) solid 3px;
+  font-size: 1.2rem;
+  color: var(--primary-font-color);
+}
+
+button {
+  border-radius: 5px;
+  min-width: 7rem;
+  min-height: 2rem;
+  color: var(--primary-font-color);
+  font-size: 1rem;
+}

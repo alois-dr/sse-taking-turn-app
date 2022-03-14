@@ -1,0 +1,21 @@
+extends layout
+
+append head
+  script(src="/javascript/index.js")
+  link(rel='stylesheet', href='/stylesheets/index.css')
+
+block content
+  script.
+    - resetCookie()
+  section(aria-labelledby="room-form")
+    h1#room-form.under-overline Rejoindre un salon
+    form(action="/rooms" method='post' onsubmit="join(); return false")
+      div
+        label(for="room-name").under-overline nom du salon
+        input(type="text" id="room-name" name="room-name")
+      div
+        label(for="username").under-overline votre pseudo
+        input(type="text" id="username" name="username" required=true)
+        span(id="error-username")
+      button(type="submit" onsubmit="return false") GO!
+

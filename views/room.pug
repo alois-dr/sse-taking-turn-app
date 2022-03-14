@@ -1,0 +1,46 @@
+extends layout
+
+append head
+  script(src="/javascript/core.js")
+  script(src="/javascript/serverSideEvent.js")
+  link(rel='stylesheet', href='/stylesheets/room.css')
+
+block content
+  header
+    h1(id="room-name" class="under-overline") #{state.roomName}
+  div(id="content")
+    section(id="speech-content" aria-labelledby="room-name")
+      h2.under-overline Tour de parole:
+      div(id="speechs")
+        ul(id="speech-list")
+          each speech in state.speechs
+            li(id=`${speech.username}_${speech.id}`)
+              div
+                span(class="index-speech") #{speech.id}.
+                div(class="speech")
+                  span #{speech.username}
+                  span(class="close" onclick="console.log('click')") &#10060;
+    input(type="checkbox" id="open-users-click" class="circle users-button")
+    div.circle.users-button
+      button(class="emoji-button circle") &#128101
+    nav(id="users-container")
+      h2.under-overline Présent.es:
+      div(id="connected-users")
+        ul(id="user-list")
+          each nameUser in state.users
+            if user.name === nameUser
+              li(id=nameUser me)
+                span #{nameUser}
+            else
+              li(id=nameUser)
+                span #{nameUser}
+
+  div(id="container-buttons")
+    button(role="button" class="emoji-button circle" id="sub" onclick="askForSpeech(this)") &#9995
+    button(
+      id="next"
+      class=user.admin ? "circle emoji-button" : "display-none"
+      onclick="nextCurrentSpeech(this)"
+    ) &#9197
+  script.
+    init()
