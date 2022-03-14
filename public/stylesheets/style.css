@@ -1,0 +1,59 @@
+:root{
+  --primary-color: #ffb1b1;
+  --secondary-color: #89e18e;
+  --third-color: #80ccea;
+
+  --primary-font-color: #2465b7;
+  --secondary-font-color: white;
+
+  --light-gray: #a9afb4;
+  --shadow-color: #858282;
+
+  --users-box-width: 17rem;
+  --emoji-button-diameter: 3rem;
+  --username-height: 2rem;
+
+  --foreground: 100;
+  --second-plan: 50;
+  --background:0;
+}
+
+body {
+  font: 17px Helvetica,"Lucida Grande", Arial, sans-serif;
+  margin: 0;
+  color: var(--primary-font-color);
+}
+.under-overline{
+  text-align: center;
+  position: relative;
+}
+.under-overline:after {
+  content: '';
+  height: 60%;
+  background-color: var(--secondary-color);
+  width: 100%;
+  display: block;
+  float: bottom;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 2px;
+  left: 8px;
+  z-index: -1;
+}
+button {
+  box-shadow: 6px 6px var(--third-color);
+  background-color: var(--secondary-color);
+  border: none;
+}
+button:focus{
+  animation: click-button 100ms;
+}
+@keyframes click-button {
+  100% {
+    box-shadow: none;
+  }
+}
+button:hover{
+  cursor: pointer;
+  filter: brightness(95%);
+}

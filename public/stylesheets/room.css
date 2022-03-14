@@ -1,0 +1,258 @@
+body {
+  overflow: hidden;
+  background-color: rgba(232, 232, 232, 0.43);
+}
+header {
+  width: 100%;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-font-color);
+  z-index: var(--foreground);
+  position: relative;
+}
+
+#content{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  overflow-y: auto;
+}
+#speech-content {
+  z-index: var(--background);
+  overflow: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#speech-content > h2 {
+  align-self: flex-start;
+  left: 5%;
+}
+
+#users-container {
+  position: absolute;
+  left: 100%;
+  width: var(--users-box-width);
+  height: 100%;
+  background: linear-gradient(0deg, var(--primary-color), var(--primary-color) 55%, var(--third-color) );
+  transition: left 200ms ease;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: var(--foreground);
+}
+#users-container > h2 {
+  color: var(--secondary-font-color)
+}
+
+.users-button {
+  position: absolute;
+  z-index: var(--foreground);
+  top:1.2rem;
+  left:calc(100% - (var(--emoji-button-diameter) + 1rem));
+}
+.users-button:hover {
+  cursor: pointer;
+}
+.users-button:hover button:after {
+  content:'fazefazef';
+  filter: brightness(50%);
+}
+#open-users-click {
+  opacity: 0;
+  z-index: calc(var(--foreground) + 100);
+}
+
+#open-users-click:checked ~ #users-container {
+  left: calc(100% - var(--users-box-width));
+  transition: left 200ms ease;
+}
+/*
+#open-users-click:checked ~ .users-button{
+  animation: resize 20ms ease;
+}
+
+@keyframes resize {
+  100% {
+    width: calc(var(--emoji-button-diameter) - 0.5rem);
+    height: calc(var(--emoji-button-diameter) - 0.5rem);
+  }
+}
+*/
+#connected-users {
+  height: 100%;
+}
+#user-list > li[me] {
+  text-decoration: underline wavy var(--secondary-color) 2px;
+}
+#user-list > li{
+  font-size: 1.5rem;
+}
+.circle {
+  width: var(--emoji-button-diameter);
+  height: var(--emoji-button-diameter);
+  border-radius: var(--emoji-button-diameter);
+}
+.emoji-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  height: 100%;
+  width: 100%;
+  user-select: none;
+}
+#speech-list > li:first-child {
+  border-bottom: var(--secondary-color) 1rem solid;
+}
+
+#speech-list > li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  font-size: 2rem;
+  min-width: 100px;
+  margin: 10px;
+  overflow: hidden;
+}
+#speech-list > li > div {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  width: 100%;
+}
+#speech-list > li > div span:nth-child(2) {
+  width: 100%;
+}
+#speech-list > li::after{
+  content: '';
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+/*#speech-list > li:first-child:hover {
+  border-bottom: transparent solid 3px;
+}*/
+#speech-list > li:not(:first-child):hover::after {
+  animation: slide 600ms ease;
+}
+#speech-list > li:hover .close {
+  /*visibility: visible;*/
+}
+.close {
+  display: none;
+}
+
+@keyframes slide {
+  0% {
+    width: 0;
+  }
+  85% {
+    width: 100%;
+  }
+  100% {
+    translate: 100%;
+  }
+}
+.index-speech {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+#speechs{
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+#container-buttons {
+  bottom: 3rem;
+  left:50%;
+  transform: translate(calc(var(--emoji-button-diameter) * -1.5 - 5px));
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+}
+
+#container-buttons > button {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+#sub, #next {
+  color: white;
+  font-size: 1.7rem;
+  height: calc(var(--emoji-button-diameter) * 1.5);
+  width: calc(var(--emoji-button-diameter) * 1.5);
+}
+
+#container-buttons div[role="button"]:hover{
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+/*
+#next:hover{
+  width: calc(var(--next-button-width)* 1.5);
+  transition: width 150ms;
+}
+#next > span:after{
+  width: 0;
+  align-items: center;
+  justify-content: left;
+  display: flex;
+  margin-bottom: 1px;
+  color: white;
+}
+#next:hover > span:after{
+  content: "  suivant.e";
+  width: calc(100% - var(--emoji-button-diameter));
+  transition: width 100ms;
+  transition-delay: 100ms;
+  white-space: pre;
+}
+
+#sub:hover{
+  width: calc(var(--next-button-width) * 1.5);
+  transition: width 150ms;
+}
+#sub {
+  position: relative;
+}
+#sub > span {
+  right:0;
+  position: absolute;
+}
+#sub > span:before{
+  width: 0;
+  align-items: center;
+  justify-content: right;
+  display: flex;
+  margin-bottom: 1px;
+  color: white;
+}
+#sub:hover ~ #next {
+
+}
+#sub:hover > span:before {
+  content: "s'inscrire  ";
+  width: calc(100% - var(--emoji-button-diameter));
+  transition: 100ms ease-in-out;
+  transition-delay: 100ms;
+  white-space: pre;
+}*/
+.display-none {
+  display: none!important;
+}
