@@ -1,10 +1,16 @@
-### Turn taking application
+### (very) Simple Turn taking application
 
 Works with **Server Side Events**.
 
-Improvements are planned, if you want any features, see any bugs or improvements please create an issue.
+Improvements are planned , if you want any features, see any bugs or improvements please create an issue.
 
-To start `$ npm start`
+**NPM is required.**
+
+Init:
+> `$ npm install`
+
+Start:
+> `$ npm start`
 
 - join a room
 ![join a room](https://github.com/alois-dr/sse-taking-turn-app/blob/main/capure1.png?raw=true)
